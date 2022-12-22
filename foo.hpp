@@ -8,10 +8,10 @@
 
 std::vector< char > foo(std::list< Human >& people)
 {
-    std::vector< char > retval(people.size());
-    std::vector< char > retval(people.size());
-	std::for_each(people.begin(), people.end(), [](Human &n) { n.birthday(); });
-	std::transform(people.begin(), people.end(), retval.begin(), [](const Human &n) { return n.isMonster() ? 'n' : 'y'; });
-	std::reverse(retval.begin(), retval.end());
-    return retval;
+    std::vector< char > animallover;
+    std::list< Human >::iterator it = people.end();
+    std::for_each(people.begin(), people.end(), [](Human& pers) { pers.birthday(); });
+    std::for_each(people.rbegin(), people.rend(), [&](Human& pers) { (pers.isMonster()) ? animallover.push_back('n') : animallover.push_back('y'); });
+    return (animallover);
 }
+
